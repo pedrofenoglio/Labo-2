@@ -1,0 +1,160 @@
+------------------------------------------------------------------------------------------------------------------------------
+
+PRIMER EJERCICIO
+
+------------------------------------------------------------------------------------------------------------------------------
+Parcial:
+/* https://github.com/ExamenesViejos-FaMAF-Computacion/ExamenesViejos_AlgoritmosYEstructurasDeDatos1_FaMAF/blob/f450800901ab5ae361b01040a3acc7c9ef52f4bf/Laboratorio/Parcial%202%202022-06-06%20(tema%20A).pdf */
+
+#include <stdio.h>
+#include <assert.h>
+
+/*Asignación múltiple*/
+/* var r, s: Int;
+{Pre: r = R, s = S, S > R}
+r, s := s - r, r + s 
+{Pos: r = S - R, s = R + S}
+*/
+
+
+/*Esta funcion no necesita ni merece explicacion*/
+int pedirEntero(void){
+    int x;
+    printf("Elegi un valor para la variable: ");
+    scanf("%d", &x);
+    return x;
+}
+
+
+ /* Pongo acá las variables r y s para que estén inicializadas con el pedirEntero*/
+void asignacionMultiple(int r, int s){ 
+int aux_r;
+assert( s > r ); /*Verifico la Pre*/
+aux_r = r;
+r = s - r;          /*Asigno*/
+s = aux_r + s;      /*Uso la variable auxiliar para preservar el estado inicial de r*/
+assert((r = s - r) && (s = aux_r + s)); /*Verifico la post*/
+printf("'r' ahora vale: %d \n", r);
+printf("'s' ahora vale: %d", s);
+}
+
+
+int main(void){
+    asignacionMultiple(pedirEntero(), pedirEntero());
+    return 0;
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+SEGUNDO EJERCICIO
+
+------------------------------------------------------------------------------------------------------------------------------
+Parcial:
+/* https://github.com/ExamenesViejos-FaMAF-Computacion/ExamenesViejos_AlgoritmosYEstructurasDeDatos1_FaMAF/blob/f450800901ab5ae361b01040a3acc7c9ef52f4bf/Laboratorio/Parcial%202%202022-06-06%20(tema%20B).pdf */
+
+#include <stdio.h>
+#include <assert.h>
+
+/*Asignación múltiple*/
+/* var r, s: Int;
+{Pre: r = R, s = S, S > R}
+s, r := 2 * r - 2 * s , 2 * r + s 
+{Pos: s = 2 * R - 2 * S, r = 2 * R + S}
+*/
+
+
+/*Esta funcion no necesita ni merece explicacion*/
+int pedirEntero(void){
+    int x;
+    printf("Elegi un valor para la variable: ");
+    scanf("%d", &x);
+    return x;
+}
+
+
+ /* Pongo acá las variables r y s para que estén inicializadas con el pedirEntero*/
+void asignacionMultiple(int s, int r){ 
+int aux_s;
+assert( s > r ); /*Verifico la Pre*/
+aux_s = s;
+s = 2 * r - 2 * s;          /*Asigno*/
+r = 2 * r + aux_s;      /*Uso la variable auxiliar para preservar el estado inicial de r*/
+assert((s = 2 * r - 2 * s) && (r = 2 * r + aux_s)); /*Verifico la post*/
+printf("'s' ahora vale: %d \n", s);
+printf("'r' ahora vale: %d", r);
+}
+
+
+int main(void){
+    asignacionMultiple(pedirEntero(), pedirEntero());
+    return 0;
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+TERCER EJERCICIO
+
+------------------------------------------------------------------------------------------------------------------------------
+Parcial:
+/* https://github.com/ExamenesViejos-FaMAF-Computacion/ExamenesViejos_AlgoritmosYEstructurasDeDatos1_FaMAF/blob/f450800901ab5ae361b01040a3acc7c9ef52f4bf/Laboratorio/Parcial%202%202022-06-06%20(tema%20C).pdf */
+
+
+#include <stdio.h>
+#include <assert.h>
+
+/*Asignación múltiple*/
+/* var i, j, k: Int;
+{Pre: i = I, j = J, k = K, k>0 , i>j}
+i, j, k :=  j + i, j + k, k + i
+{Pos: i = J + I, j = J + K, k = K + I}
+*/
+
+
+
+/*Esta funcion no necesita ni merece explicacion*/
+int pedirEntero(void){
+    int x;
+    printf("Elegi un valor para la variable: ");
+    scanf("%d", &x);
+    return x;
+}
+
+
+ /* Pongo acá las variables r y s para que estén inicializadas con el pedirEntero*/
+void asignacionMultiple(int i, int j, int k){
+int I, J, K;
+I = i;
+J = j;
+K = k;
+assert(I > J && K > 0); /*Verifico la Pre*/
+int aux_i;
+aux_i = i;
+i = j + i;          /*Asigno*/
+j = j + k;
+k = k + aux_i;      /*Uso la variable auxiliar para preservar el estado inicial de r*/
+assert((i = j + i) && (j = j + k) && (k = k + aux_i)); /*Verifico la post*/
+printf("'i' ahora vale: %d \n", i);
+printf("'j' ahora vale: %d \n", j);
+printf("'k' ahora vale: %d", k);
+}
+
+int main(void){
+    asignacionMultiple(pedirEntero(), pedirEntero(), pedirEntero());
+    return 0;
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+CUARTO EJERCICIO
+
+------------------------------------------------------------------------------------------------------------------------------
+Parcial:
+/*  */
+
+
+
+
+
