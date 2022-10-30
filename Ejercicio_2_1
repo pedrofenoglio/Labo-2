@@ -1,0 +1,29 @@
+#include <stdio.h>
+#define N 5
+
+int suma_multiplos(int a[], int tam, int k){
+    int i = 0;
+    int suma = 0; 
+    while(i<tam){
+        if(a[i] % a[k] == 0){
+            suma = suma + a[i];
+        }
+        i = i + 1;
+    }
+    printf("%d", suma);
+    return suma;
+}
+
+int main(void){
+    int k;
+    int i = 0;
+    int a[N];
+    while(i<N){
+        printf("Elegi un valor para la posicion %d: ", i);
+        scanf("%d", &a[i]);
+        i = i + 1;
+    }
+    printf("Elegi un valor para k: ");
+    scanf("%d", &k);
+    suma_multiplos(a, N, k);
+}
