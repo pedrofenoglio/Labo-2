@@ -1,0 +1,57 @@
+#include <stdio.h>
+#define N 5
+#include <limits.h>
+#include <float.h>
+
+struct producto_t
+{
+    int codigo;
+    int cantidad;
+};
+
+struct stats_t
+{
+    float cantidad_media;
+    int cantidad_minima;
+    int cantidad_maxima;
+};
+
+
+struct stats_t calcular_estadisticas(struct producto_t a[], int tam){
+    int i = 0;
+    struct stats_t producto;
+    producto.cantidad_maxima = INT_MIN;
+    producto.cantidad_media = 0;
+    producto.cantidad_minima = INT_MAX;
+    while (i < tam)
+    {
+        if(a[i].cantidad < producto.cantidad_minima){
+            producto.cantidad_minima = a[i].cantidad;
+        }
+        if(a[i].cantidad > producto.cantidad_maxima){
+            producto.cantidad_maxima = a[i].cantidad;
+        }
+        producto.cantidad_media = producto.cantidad_media + (a[i].cantidad / tam);
+        i = i + 1;
+    }
+
+    return producto;
+
+}
+
+int main(void){
+    int i = 0;
+    struct producto_t a[N];
+    a->cantidad = 0;
+    a->codigo = 0;    
+    while (i<N)
+    {
+        printf("Selecciona la cantidad para la posicion %d de tu arreglo", i);
+        scanf("%d", &a[i].cantidad);
+               printf("Selecciona el codigo para la posicion %d de tu arreglo", i);
+        scanf("%d", &a[i].codigo);
+        i = i + 1;
+    }
+    calcular_estadisticas(a, N);
+    return 0;
+}
