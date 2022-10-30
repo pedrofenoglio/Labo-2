@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <float.h>
+#define N 5
+
+struct persona_t
+{
+    int dni;
+    float altura;
+};
+
+struct paridad_t
+{
+    float altura_media;
+    float altura_minima;
+    float altura_maxima;
+};
+
+
+struct paridad_t calcular_estadistica(struct persona_t a[], int tam){
+    int i = 0;
+    struct paridad_t paridad;
+    paridad.altura_maxima = FLT_MIN;
+    paridad.altura_minima = FLT_MAX;
+    paridad.altura_media = 0;
+    while (i < tam)
+    {
+        if(a[i].altura < paridad.altura_minima){ 
+            paridad.altura_minima = a[i].altura;
+        }
+        if (a[i].altura > paridad.altura_maxima){
+            paridad.altura_maxima = a[i].altura;
+        }
+        paridad.altura_media = paridad.altura_media + ((a[i].altura) / tam);
+
+        i = i + 1;
+    }
+    printf("la altura media es: %f \n", paridad.altura_media);
+    printf("El mas petiso mide: %f \n", paridad.altura_minima);
+    printf("El mas alto mide: %f",paridad.altura_maxima);
+    
+    return paridad;
+
+}
+
+int main(void){
+    int i = 0;
+    struct persona_t a[N];
+    a -> altura = 0;
+    a-> dni = 0;
+    while (i < N)
+    {
+        printf("Selecciona valores para la altura de la posicion %d :", i);
+        scanf("%f", &a->altura);
+        printf("Selecciona el dni de la persona en la pos %d :", i);
+        scanf("%d", &a->dni);
+        i = i + 1;
+    }
+
+    calcular_estadistica(a, N);
+
+    return 0;
+}
