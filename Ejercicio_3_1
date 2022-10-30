@@ -1,0 +1,38 @@
+#include <stdio.h>
+#define N 5
+
+struct cantidad_t
+{
+    int n_multiplos_dos;
+    int n_multiplos_tres;
+};
+
+struct cantidad_t contar_multiplos(int a[], int tam){
+    int i = 0;
+    struct cantidad_t cantidad;
+    cantidad.n_multiplos_dos = 0;
+    cantidad.n_multiplos_tres = 0;
+    while(i<tam){
+        if(a[i] % 2 == 0){
+            cantidad.n_multiplos_dos = cantidad.n_multiplos_dos + a[i];
+        }
+        if (a[i] % 3 == 0){
+            cantidad.n_multiplos_tres = cantidad.n_multiplos_tres + a[i];
+        }
+        i = i + 1;        
+    }
+    return cantidad;
+}
+
+int main(void){
+    int a[N];
+    int i = 0;
+    while (i < N)
+    {
+        printf("Selecciona el valor para la posicion %d del arreglo: ", i);
+        scanf("%d", &a[i]);
+        i = i + 1;
+    }
+    contar_multiplos(a, N);
+    return 0;
+}
