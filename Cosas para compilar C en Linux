@@ -1,0 +1,7 @@
+Las flags que usamos son:
+-Wall
+-Wextra
+El standard:
+-std=c99
+
+gcc -Wall -Wextra -std=c99 hola.c -o holaPrograma
