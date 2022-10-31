@@ -1,0 +1,23 @@
+void pedirArreglo(int a[], int tam){
+	int i = 0;
+	while(i < tam){
+		printf("Ingrese entero para la posicion "%d":\n", i);
+		scanf("%d",&a[i]);
+		i = i + 1 ;
+	}
+}
+
+
+/* 
+Ejemplo de uso
+*/
+
+int main(){
+	int arr[N];   /* N tiene que estar definido como constante */
+	pedirArre(arr,N);   /* Usarla recien en el main, no en la funcion principal del ejercicio */
+	int n = pedirEnt();   /* Esta está en otro archivo del mismo repo */
+	int multmax = multiplo_maximo(arr,N,n);   /* Para hacer el print afuera de la funcion como pide el ejercicio */
+	printf("El multiplo maximo es %d \n",multmax ); 
+	return 0;
+}
+
