@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<limits.h>
+#include<assert.h>
+#define N 7
+
+typedef struct multiplos_t {
+int n_multiplos_dos;
+int n_multiplos_tres;
+int n_multiplos_cinco;
+}multi;
+
+multi contar_multiplos(int a[], int tam){
+	int i=0;
+	int m2 = 0, m3 = 0, m5 = 0;
+	while(i<tam){
+		if(a[i] % 2 == 0){
+			m2++;
+		}
+		if(a[i] % 3 == 0){
+			m3++;
+		}
+		if(a[i] % 5 == 0){
+			m5++;
+		}
+		i++;
+	}
+
+	multi multiplos;
+	multiplos.n_multiplos_dos = m2;
+	multiplos.n_multiplos_tres = m3;
+	multiplos.n_multiplos_cinco = m5;
+
+	return multiplos;
+}
+
+void pedirArre(int a[],int x){
+	int i=0;
+	while(i<x){
+		printf("Ingrese entero para la posicion '%d' : \n",i);
+		scanf("%d",&a[i]);
+		i=i+1;
+	}
+}
+
+int main(){
+	int arr[N];
+	pedirArre(arr,N);
+	multi multiplos = contar_multiplos(arr,N);
+	int m2,m3,m5;
+	m2 = multiplos.n_multiplos_dos;
+	m3 = multiplos.n_multiplos_tres;
+	m5 = multiplos.n_multiplos_cinco;
+	printf("La cantidad de multiplos de 2 es : %d , la de 3 es : %d , la de 5 es : %d\n", m2,m3,m5);
+
+
+	return 0;
+}
