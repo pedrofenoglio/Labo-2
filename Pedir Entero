@@ -1,0 +1,5 @@
+int pedirEntero(){
+    printf("Ingrese un entero\n");
+    int n; scanf("%d",&n);
+    return n;
+}
